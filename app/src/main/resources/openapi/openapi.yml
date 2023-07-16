@@ -1,0 +1,45 @@
+openapi: "3.0.3"
+info:
+  description: "This project provide endpoints for Addresses."
+  version: "@project.version@"
+  title: "Address API"
+  contact:
+    email: "jugurtha.aitoufella@gmail.com"
+paths:
+  /address:
+    post:
+      tags:
+        - Address API
+      summary: create address
+      operationId: CreateAddress
+      requestBody:
+        description: Product information to retrieve stock
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Address'
+components:
+  schemas:
+    Address:
+      title: Address
+      description: Information to provide for Address
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        name:
+          type: string
+        cityCode:
+          type: string
+        population:
+          type: integer
